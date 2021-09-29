@@ -1,139 +1,69 @@
-<p align="center">
-  <a href="https://docs.filecoin.io/" title="Filecoin Docs">
-    <img src="documentation/images/lotus_logo_h.png" alt="Project Lotus Logo" width="244" />
-  </a>
-</p>
 
-<h1 align="center">Project Lotus - 莲</h1>
+## Project Name: offchain-wallet
+offchain-wallet
 
-<p align="center">
-  <a href="https://circleci.com/gh/filecoin-project/lotus"><img src="https://circleci.com/gh/filecoin-project/lotus.svg?style=svg"></a>
-  <a href="https://codecov.io/gh/filecoin-project/lotus"><img src="https://codecov.io/gh/filecoin-project/lotus/branch/master/graph/badge.svg"></a>
-  <a href="https://goreportcard.com/report/github.com/filecoin-project/lotus"><img src="https://goreportcard.com/badge/github.com/filecoin-project/lotus" /></a>  
-  <a href=""><img src="https://img.shields.io/badge/golang-%3E%3D1.16-blue.svg" /></a>
-  <br>
-</p>
 
-Lotus is an implementation of the Filecoin Distributed Storage Network. For more details about Filecoin, check out the [Filecoin Spec](https://spec.filecoin.io).
+## Category 
+Wallet, filecoin safe wallet
+<!--developer tooling, application, wallet, infrastructure, etc-->
 
-## Building & Documentation
+## Project Description
+Offchain-wallet is a Filecoin Wallet application. It is an offline wallet, support complex operation of normal address type and bls address. You can download the source code and build from the code. Since it can be run on a totally offline computer, you can create and manage filecoin wallets in safety. 
+Different from other wallet, it supports all the complex operation of the owner wallet in filecoin, such as WithdrawBalance, ChangeOwnerAddress, ChangeWorkerAddress and so on.
 
-> Note: The default `master` branch is the dev branch, please use with caution. For the latest stable version, checkout the most recent [`Latest release`](https://github.com/filecoin-project/lotus/releases).
- 
-For complete instructions on how to build, install and setup lotus, please visit [https://docs.filecoin.io/get-started/lotus](https://docs.filecoin.io/get-started/lotus/). Basic build instructions can be found further down in this readme.
+<!--Describe your project in a few sentences. -->
 
-## Reporting a Vulnerability
+## Previews
+This is the wallet homepage, showing the wallet list.
+![wallet list](https://user-images.githubusercontent.com/58079255/132000093-6e8c312e-dc12-46f5-a1f0-a7fdc1bad713.jpg)
+Create a new wallet
+![create a new wallet](https://user-images.githubusercontent.com/58079255/132000127-259c8d07-5285-478b-9801-7f5434d51d24.jpg)
+Choose an operation, supporting other operations besides transfer money.
+![choose an operation](https://user-images.githubusercontent.com/58079255/132000177-a40462cd-fb8b-4973-9e7d-72d32a30706e.jpg)
+Fill the information to transfer money
+![fill in the form](https://user-images.githubusercontent.com/58079255/132000190-55f73785-f8d4-4fc2-a7ec-7b54b16096a7.jpg)
+Show the sign message result
+![sign](https://user-images.githubusercontent.com/58079255/132000202-53aae829-7b0e-4e24-add4-bc8b98c45a8b.jpg)
+The final step is using a qr code scanner to get the sign string and send it out from our customized lotus, which is opensource too, to send the message into the message pool.
 
-Please send an email to security@filecoin.org. See our [security policy](SECURITY.md) for more details.
+<!--Add some screenshots to give a preview of your product-->
 
-## Related packages
+## Target Audience
+Everybody can use it to create filecoin wallet and store the wallet safety. Miner owners can use the offline wallet to withdraw fil from miner account.
+<!--Describe who will be your project's users-->
 
-These repos are independent and reusable modules, but are tightly integrated into Lotus to make up a fully featured Filecoin implementation:
+## Rough estimated user base (if applicable)
+about 5 miner shareholders
+<!--How many users do you have right now?-->
 
-- [go-fil-markets](https://github.com/filecoin-project/go-fil-markets) which has its own [kanban work tracker available here](https://app.zenhub.com/workspaces/markets-shared-components-5daa144a7046a60001c6e253/board)
-- [specs-actors](https://github.com/filecoin-project/specs-actors) which has its own [kanban work tracker available here](https://app.zenhub.com/workspaces/actors-5ee6f3aa87591f0016c05685/board)
+## Github repo
+https://github.com/joyceqingling/lotus-offchain-wallet
+<!--Attach a link to your GitHub repo if it's OSS-->
 
-## Contribute
+## Website
+https://github.com/joyceqingling/lotus-offchain-wallet
+<!--Link your website if available-->
 
-Lotus is a universally open project and welcomes contributions of all kinds: code, docs, and more. However, before making a contribution, we ask you to heed these recommendations:
+## Docs
+https://github.com/slate-engineering/wallet
+<!--Including a link to your project docs!-->
 
-1. If the proposal entails a protocol change, please first submit a [Filecoin Improvement Proposal](https://github.com/filecoin-project/FIPs).
-2. If the change is complex and requires prior discussion, [open an issue](github.com/filecoin-project/lotus/issues) or a [discussion](https://github.com/filecoin-project/lotus/discussions) to request feedback before you start working on a pull request. This is to avoid disappointment and sunk costs, in case the change is not actually needed or accepted.
-3. Please refrain from submitting PRs to adapt existing code to subjective preferences. The changeset should contain functional or technical improvements/enhancements, bug fixes, new features, or some other clear material contribution. Simple stylistic changes are likely to be rejected in order to reduce code churn.
+## Team Info
+People at Protocol Labs build protocols, tools, and services to radically improve the Internet. The Applications Research Group (ARG) is an auxiliary team that aims to bolsters the mission by focusing on shipping tools that people love to use on the Internet. -- more at https://arg.protocol.ai
+<!-- Introduce your amazing team - how many team members are working on this project and who are they?-->
 
-When implementing a change:
+### Team Size  
+2
 
-1. Adhere to the standard Go formatting guidelines, e.g. [Effective Go](https://golang.org/doc/effective_go.html). Run `go fmt`.
-2. Stick to the idioms and patterns used in the codebase. Familiar-looking code has a higher chance of being accepted than eerie code. Pay attention to commonly used variable and parameter names, avoidance of naked returns, error handling patterns, etc.
-3. Comments: follow the advice on the [Commentary](https://golang.org/doc/effective_go.html#commentary) section of Effective Go.
-4. Minimize code churn. Modify only what is strictly necessary. Well-encapsulated changesets will get a quicker response from maintainers.
-5. Lint your code with [`golangci-lint`](https://golangci-lint.run) (CI will reject your PR if unlinted).
-6. Add tests.
-7. Title the PR in a meaningful way and describe the rationale and the thought process in the PR description.
-8. Write clean, thoughtful, and detailed [commit messages](https://chris.beams.io/posts/git-commit/). This is even more important than the PR description, because commit messages are stored _inside_ the Git history. One good rule is: if you are happy posting the commit message as the PR description, then it's a good commit message.
+### Team members  
+Adonis Jiang, 
+Joyce Hu
 
-## Basic Build Instructions
-**System-specific Software Dependencies**:
+## How the community can engage
+Email: joyceshiling@gmail.com
+Slack: Joyce
+Communuty Discussion: https://github.com/filecoin-project/community/discussions/289
 
-Building Lotus requires some system dependencies, usually provided by your distribution.
-
-Ubuntu/Debian:
-```
-sudo apt install mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config curl clang build-essential hwloc libhwloc-dev wget -y && sudo apt upgrade -y
-```
-
-Fedora:
-```
-sudo dnf -y install gcc make git bzr jq pkgconfig mesa-libOpenCL mesa-libOpenCL-devel opencl-headers ocl-icd ocl-icd-devel clang llvm wget hwloc libhwloc-dev
-```
-
-For other distributions you can find the required dependencies [here.](https://docs.filecoin.io/get-started/lotus/installation/#system-specific) For instructions specific to macOS, you can find them [here.](https://docs.filecoin.io/get-started/lotus/installation/#macos)
-
-#### Go
-
-To build Lotus, you need a working installation of [Go 1.16.4 or higher](https://golang.org/dl/):
-
-```bash
-wget -c https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-```
-
-**TIP:**
-You'll need to add `/usr/local/go/bin` to your path. For most Linux distributions you can run something like:
-
-```shell
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc && source ~/.bashrc
-```
-
-See the [official Golang installation instructions](https://golang.org/doc/install) if you get stuck.
-
-### Build and install Lotus
-
-Once all the dependencies are installed, you can build and install the Lotus suite (`lotus`, `lotus-miner`, and `lotus-worker`).
-
-1. Clone the repository:
-
-   ```sh
-   git clone https://github.com/filecoin-project/lotus.git
-   cd lotus/
-   ```
-   
-Note: The default branch `master` is the dev branch where the latest new features, bug fixes and improvement are in. However, if you want to run lotus on Filecoin mainnet and want to run a production-ready lotus, get the latest release[ here](https://github.com/filecoin-project/lotus/releases).
-
-2. To join mainnet, checkout the [latest release](https://github.com/filecoin-project/lotus/releases).
-
-   If you are changing networks from a previous Lotus installation or there has been a network reset, read the [Switch networks guide](https://docs.filecoin.io/get-started/lotus/switch-networks/) before proceeding.
-
-   For networks other than mainnet, look up the current branch or tag/commit for the network you want to join in the [Filecoin networks dashboard](https://network.filecoin.io), then build Lotus for your specific network below.
-
-   ```sh
-   git checkout <tag_or_branch>
-   # For example:
-   git checkout <vX.X.X> # tag for a release
-   ```
-
-   Currently, the latest code on the _master_ branch corresponds to mainnet.
-
-3. If you are in China, see "[Lotus: tips when running in China](https://docs.filecoin.io/get-started/lotus/tips-running-in-china/)".
-4. This build instruction uses the prebuilt proofs binaries. If you want to build the proof binaries from source check the [complete instructions](https://docs.filecoin.io/get-started/lotus/installation/#build-and-install-lotus). Note, if you are building the proof binaries from source, [installing rustup](https://docs.filecoin.io/get-started/lotus/installation/#rustup) is also needed.
-
-5. Build and install Lotus:
-
-   ```sh
-   make clean all #mainnet
-
-   # Or to join a testnet or devnet:
-   make clean calibnet # Calibration with min 32GiB sectors
-   make clean nerpanet # Nerpa with min 512MiB sectors
-
-   sudo make install
-   ```
-
-   This will put `lotus`, `lotus-miner` and `lotus-worker` in `/usr/local/bin`.
-
-   `lotus` will use the `$HOME/.lotus` folder by default for storage (configuration, chain data, wallets, etc). See [advanced options](https://docs.filecoin.io/get-started/lotus/configuration-and-advanced-usage/) for information on how to customize the Lotus folder.
-
-6. You should now have Lotus installed. You can now [start the Lotus daemon and sync the chain](https://docs.filecoin.io/get-started/lotus/installation/#start-the-lotus-daemon-and-sync-the-chain).
-
-## License
-
-Dual-licensed under [MIT](https://github.com/filecoin-project/lotus/blob/master/LICENSE-MIT) + [Apache 2.0](https://github.com/filecoin-project/lotus/blob/master/LICENSE-APACHE)
+## How to Contribute
+<!--How can the community contribute to your project?-->
+We have issues for the public here.
